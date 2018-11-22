@@ -1,0 +1,4 @@
+The Version with the two threads is definitely faster. Why? The whole work is split up on two "workers".
+If you have to build a house alone it will take you really long, but if someone helps you it will take less time than doing it alone.
+The same goes for cooking. Why should your mother ask you to help her out in the kitchen if she was alone as fast as with you. 
+One of you can start cutting the ingredients and the other reads the recipe.
