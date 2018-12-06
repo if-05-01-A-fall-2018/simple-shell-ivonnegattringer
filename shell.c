@@ -7,18 +7,19 @@ char* pointer;
 //bei null stoppt der execvp
 int main(int argc, char const *argv[]) {
   char input[256];
+  char* save;
   gets( input);
   char* div = "&&";
-pointer = strtok(input, div);
+pointer = strtok_r(input, div,&save);
  while(pointer != 0) {
    char* div2 = " ";
-
-  char* pointer2 = strtok(pointer, div2);
+   char* save2;
+  char* pointer2 = strtok_r(pointer, div2, &save2);
    int count = 0;
    while(pointer2 != 0){
      arguments[count] = pointer2;
      count++;
-     pointer2 = strtok(0, div2);
+     pointer2 = strtok_r(0, div2, &save2);
    }
    arguments[count] = 0;
     int pid = fork();
@@ -34,7 +35,7 @@ pointer = strtok(input, div);
         int status;
         waitpid(-1, &status, 0);
       }
-      pointer = strtok(0, div);
+      pointer = strtok_r(0, div,&save);
   }
 
   return 0;
